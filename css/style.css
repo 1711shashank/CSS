@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Lobster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 * {
   margin: 0;
@@ -8,109 +8,70 @@
 
 body {
   font-family: "Roboto", sans-serif;
-  font-size: 1.5rem;
-  min-height: 200vh;
+  min-height: 100vh;
+  /* padding: 20px; */
+
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-auto-rows: 50px auto 50px;
+  grid-template-areas:  
+    "hd hd hd hd hd hd hd hd hd"
+    "mn mn mn mn mn mn mn sb sb"
+    "ft ft ft ft ft ft ft ft ft";
+    column-gap: 0.6rem; 
+}
+.el{
+  background-color: violet;
+  color: #fff;
+  display: grid;
+  place-content: center;
+}
+.header{
+  grid-area: hd;
+}
+.sidebar{
+  grid-area: sb;
+  background-color: blue;
+}
+.footer{
+  grid-area: ft; 
 }
 
-.outer-container {
-  border: 3px dashed #000;
-  width: 75vw;
-  height: 85vh;
-  margin: 40px auto;
-  position: relative;
-}
+.container {
+  grid-area: mn;
+  min-height: 400px;
+  display: grid;
+  /* grid-auto-flow: column; */
+  /* grid-template-columns: 5fr 1fr 2fr; */
+  grid-template-columns: repeat(2, 1fr 2fr);
+  grid-auto-rows: minmax(150px, auto);
+  gap: 1rem;
 
-.inner-container {
-  border: 2px solid #00f;
-  width: 40vw;
-  height: 50vh;
-  margin: 200px auto;
-  
-}
+} 
 
 .box {
-  width: 150px;
-  height: 150px;
+  min-width: 100px;
+  min-height: 100px;
+  background-color: #000;
   color: #fff;
-  padding: 1rem;
+  font-size: 2rem;
+  padding: 0.5rem;
 }
 
-.absolute{
-    background-color: blue;
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
-}
-.relative{
-  background-color: red;
-  position: relative;
-  z-index: 2;
-  top: 1000px;
-  left:100px;
-}
-
-.fixed{
-  background-color: green;
-  position:fixed;
-  z-index: 3;
-  top: 10px;
-  left: 30px;
-}
-.sticky{
-  background-color: black;
-  position: sticky;
-
-}
-
-/* /////////////////////////////////////// */
-html{
-  scroll-behavior: smooth;
-}
-
-section{
-  height: 100vh;
-}
-.blue{
+.box:first-child{
   background-color: blue;
-}
-.red{
-  background-color: red;
-}
-.green{
-  background-color: green;
+  /* grid-column-start: 1;
+  grid-column-end: 4; */
+  grid-column: 1/4;
+  grid-row: 1/3;
+
+  display: grid;
+ /* place-content: align-item justify-content; */
+  place-content: center;
 }
 
-header, footer{ 
-  color: white;
-  height: 100px;
-  text-align: center;
-}
-
-header{
-  position: sticky;
-  top: 0;
-}
-
-footer{
-  background-color: black;
-  bottom: 0;
-  position: sticky;
-  width: 100%;
-  font-size: 3rem;
-}
-
-a{
-  color: white;
-
-}
-
-.social{
-  background-color: blue;
-  color: white;
-  font-size: inherit;
-  padding: 1rem;
-  position: fixed;
-  z-index: 1;
-  top: 30%;
+.box:nth-child(2){
+  background-color: palegreen;
+  grid-column: 1/5;
+  grid-row: 3 /4;
 }
