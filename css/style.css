@@ -1,39 +1,116 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Lobster&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
   font-family: "Roboto", sans-serif;
   font-size: 1.5rem;
+  min-height: 200vh;
 }
 
-.columns{
-    /* column-count: 3;
-    column-width: 250px; */
-    columns: 3 250px;
-    column-rule: 1px solid gray;
-    column-gap: 3rem;   
+.outer-container {
+  border: 3px dashed #000;
+  width: 75vw;
+  height: 85vh;
+  margin: 40px auto;
+  position: relative;
 }
 
-.columns p{
-    margin-top: 0;
-}
-.columns h2 {
-    background-color: grey;
-    padding: 1rem;
-    margin-top: 0;
-    break-inside: avoid;
-    break-before: column;
+.inner-container {
+  border: 2px solid #00f;
+  width: 40vw;
+  height: 50vh;
+  margin: 200px auto;
+  
 }
 
-.columns .quote{
-    font-size: 3rem;
-    text-align: center;
-    color: #333;
-    /* complete sentence will be inserted between the columns */
-    column-span: all;
-    margin-top: 2rem;
+.box {
+  width: 150px;
+  height: 150px;
+  color: #fff;
+  padding: 1rem;
 }
 
-.nowrap{
-    /*complete sentence will be int he line  */
-    white-space: nowrap;
+.absolute{
+    background-color: blue;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+.relative{
+  background-color: red;
+  position: relative;
+  z-index: 2;
+  top: 1000px;
+  left:100px;
+}
+
+.fixed{
+  background-color: green;
+  position:fixed;
+  z-index: 3;
+  top: 10px;
+  left: 30px;
+}
+.sticky{
+  background-color: black;
+  position: sticky;
+
+}
+
+/* /////////////////////////////////////// */
+html{
+  scroll-behavior: smooth;
+}
+
+section{
+  height: 100vh;
+}
+.blue{
+  background-color: blue;
+}
+.red{
+  background-color: red;
+}
+.green{
+  background-color: green;
+}
+
+header, footer{ 
+  color: white;
+  height: 100px;
+  text-align: center;
+}
+
+header{
+  position: sticky;
+  top: 0;
+}
+
+footer{
+  background-color: black;
+  bottom: 0;
+  position: sticky;
+  width: 100%;
+  font-size: 3rem;
+}
+
+a{
+  color: white;
+
+}
+
+.social{
+  background-color: blue;
+  color: white;
+  font-size: inherit;
+  padding: 1rem;
+  position: fixed;
+  z-index: 1;
+  top: 30%;
 }
