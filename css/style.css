@@ -1,77 +1,88 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
 
+/* || RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* || GENERAL STYLES */
 body {
-  font-family: "Roboto", sans-serif;
+  font: 1.5rem "Nunito", sans-serif;
   min-height: 100vh;
-  /* padding: 20px; */
 
-  display: grid;
-  grid-template-columns: repeat(9, 1fr);
-  grid-auto-rows: 50px auto 50px;
-  grid-template-areas:  
-    "hd hd hd hd hd hd hd hd hd"
-    "mn mn mn mn mn mn mn sb sb"
-    "ft ft ft ft ft ft ft ft ft";
-    column-gap: 0.6rem; 
+  background-color: aqua;
+  background-image: radial-gradient(whitesmoke, gray);
+  display: flex;
+  flex-direction: column;
 }
-.el{
-  background-color: violet;
-  color: #fff;
+
+header, nav, main, footer{
   display: grid;
   place-content: center;
-}
-.header{
-  grid-area: hd;
-}
-.sidebar{
-  grid-area: sb;
-  background-color: blue;
-}
-.footer{
-  grid-area: ft; 
+  grid-template-columns: 100%;
+  text-align: center;
 }
 
-.container {
-  grid-area: mn;
-  min-height: 400px;
-  display: grid;
-  /* grid-auto-flow: column; */
-  /* grid-template-columns: 5fr 1fr 2fr; */
-  grid-template-columns: repeat(2, 1fr 2fr);
-  grid-auto-rows: minmax(150px, auto);
-  gap: 1rem;
-
-} 
-
-.box {
-  min-width: 100px;
-  min-height: 100px;
-  background-color: #000;
-  color: #fff;
-  font-size: 2rem;
+header, footer{
+  position: sticky;
+  background-color: #1E293B;
+  color: white;
+}
+header{
+  top: 0;
+}
+main{
+  flex-grow: 1 ;
+}
+nav{
+  background-color: white;
+  color: #1E293B;
   padding: 0.5rem;
+  border-bottom: 2px solid black;
+}
+footer{
+  bottom: 0;
+}
+ 
+ /* || Mobile */
+@media screen and (min-width: 576px) {
+  body{
+    background-color: green;
+    background-image:radial-gradient(white, green) ;
+  }
+  nav{
+    display: none;
+  } 
 }
 
-.box:first-child{
-  background-color: blue;
-  /* grid-column-start: 1;
-  grid-column-end: 4; */
-  grid-column: 1/4;
-  grid-row: 1/3;
+ /* || Tab */
+ @media screen and (min-width: 768px) {
+  body{
+    background-color: gold;
+    background-image:radial-gradient(white, gold) ;
+  }
 
-  display: grid;
- /* place-content: align-item justify-content; */
-  place-content: center;
 }
 
-.box:nth-child(2){
-  background-color: palegreen;
-  grid-column: 1/5;
-  grid-row: 3 /4;
+ /* || PC */
+@media screen and (min-width: 992px) {
+  body{
+    background-color: red;
+    background-image:radial-gradient(white, red) ;
+  }
+
+}
+
+ /* || mobile landscape */
+ @media screen and (max-height:425) and (min-aspect-ratio:7/4) {
+  body{
+    background-color: blue;
+    background-image:radial-gradient(white, blue) ;
+  }
+  nav{
+    display: none;
+  }
+
 }
